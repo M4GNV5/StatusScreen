@@ -45,14 +45,15 @@ module drawSide(thick)
 }
 
 //floor
-cube([size[0], size[1], thickness], true);
+translate([0, 0, thickness / 2])
+	cube([size[0], size[1], thickness], true);
 
 //roof
 translate([0, sizeDiff / 2, size[2] - thickness / 2])
 	cube([size[0], size[1] - sizeDiff, thickness], true);
 
 //front
-translate([0, -size[1] / 2, frontHeight / 2 - thickness / 2])
+translate([0, -size[1] / 2, frontHeight / 2])
 	cube([size[0], thickness, frontHeight], true);
 
 //side X+
