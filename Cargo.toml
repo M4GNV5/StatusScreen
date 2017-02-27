@@ -1,0 +1,9 @@
+[package]
+name = "statusscreen"
+version = "0.1.0"
+authors = ["M4GNV5 <jakob@m4gnus.de>"]
+
+[dependencies.sdl2]
+version = "0.29"
+default-features = false
+features = ["ttf", "gfx"]
