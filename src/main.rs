@@ -27,14 +27,14 @@ fn main()
 	let mut mem_history: [mem::Usage; DATA_COUNT] = [Default::default(); DATA_COUNT];
 
 	let sdl = sdl2::init().unwrap();
-    let video = sdl.video().unwrap();
-    let ttf = sdl2::ttf::init().unwrap();
+	let video = sdl.video().unwrap();
+	let ttf = sdl2::ttf::init().unwrap();
 
-    let window = video.window("Status Screen", SCREEN_WIDTH, SCREEN_HEIGHT)
-        .position_centered()
+	let window = video.window("Status Screen", SCREEN_WIDTH, SCREEN_HEIGHT)
+		.position_centered()
 		//.borderless()
-        .build()
-        .unwrap();
+		.build()
+		.unwrap();
 
 	let mut renderer = window.renderer().build().unwrap();
 	let font = ttf.load_font(FONT, 24).unwrap();
