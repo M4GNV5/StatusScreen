@@ -37,7 +37,7 @@ fn main()
 		.unwrap();
 
 	let mut renderer = window.renderer().build().unwrap();
-	let font = ttf.load_font(FONT, 24).unwrap();
+	let font = ttf.load_font(FONT, 12).unwrap();
 
 	/*let surface = font.render("Hello Rust!").blended(color!(255, 0, 0)).unwrap();
 	let mut texture = renderer.create_texture_from_surface(&surface).unwrap();
@@ -70,6 +70,29 @@ fn main()
 		for i in 1 .. DATA_COUNT
 		{
 			let curr = (pos + i) % DATA_COUNT;
+
+			{
+				let surface = font.render("CPU").blended(color!(0, 0, 0)).unwrap();
+				let mut texture = renderer.create_texture_from_surface(&surface).unwrap();
+				let TextureQuery { width, height, .. } = texture.query();
+
+				let pos1 = Rect::new(13, 10, width, height);
+				renderer.copy(&mut texture, None, Some(pos1)).unwrap();
+
+				let pos2 = Rect::new(13, 120, width, height);
+				renderer.copy(&mut texture, None, Some(pos2)).unwrap();
+			}
+			{
+				let surface = font.render("MEM").blended(color!(0, 0, 0)).unwrap();
+				let mut texture = renderer.create_texture_from_surface(&surface).unwrap();
+				let TextureQuery { width, height, .. } = texture.query();
+
+				let pos1 = Rect::new(123, 10, width, height);
+				renderer.copy(&mut texture, None, Some(pos1)).unwrap();
+
+				let pos2 = Rect::new(123, 120, width, height);
+				renderer.copy(&mut texture, None, Some(pos2)).unwrap();
+			}
 
 			{
 				let next = (curr + 1) % DATA_COUNT;
