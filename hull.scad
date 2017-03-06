@@ -1,9 +1,10 @@
 //
 //config
 //
-thickness = 1;
+thickness = 4;
 size = [170, 100, 30];
-frontHeight = 5;
+frontHeight = 9;
+frontDistance = 4;
 angle = 30;
 
 
@@ -36,7 +37,7 @@ module toWall(points, offset)
 module drawSide(thick)
 {
 	toWall([
-		[0, -size[1] / 2, 0],
+		[0, -size[1] / 2 + frontDistance, 0],
 		[0, size[1] / 2, 0],
 		[0, size[1] / 2, size[2]],
 		[0, -size[1] / 2 + sizeDiff, size[2]],
